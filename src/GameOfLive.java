@@ -1,9 +1,11 @@
 import java.util.Random;
 
+import static java.lang.reflect.Array.set;
+
 public class GameOfLive {
 
-    public static void theMatrix(int x, int y) {
 
+    public static int[][] createMatrix(int x, int y) {
         Random rnd = new Random();
         int[][] matrix = new int[x][y];
 
@@ -14,28 +16,25 @@ public class GameOfLive {
             }
             System.out.println("");
         }
+        return matrix;
+    }
+
+    public static void theMatrix(int x, int y) {
+
+        if(x%2 == 0 || y%2 == 0) {
+            // Si es par la celula está viva
+        } else {
+            // La celula está muerta
+        }
     }
 
     public static void main(String[] args) {
 
-        theMatrix(30, 30);
+        int[][] addMatrix = createMatrix(30, 30);
 
-        // boolean cell;
-        // int limitInteractions = 500;
-
-        // int matrix[][] = new int [10][10];
-
-        /* int randomNumber = (int)Math.floor(Math.random()*10);
+        boolean cell;
+        int limitInteractions = 500;
 
 
-        if (randomNumber%2 == 0) {
-            for (int x = 0; x < matrix.length; x++) {
-                for (int y = 0; y < matrix.length; y++) {
-                    System.out.print(matrix[x][y] = randomNumber);
-                }
-
-                System.out.println("");
-            }
-        } */
     }
 }
