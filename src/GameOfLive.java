@@ -8,12 +8,15 @@ public class GameOfLive {
 
     public static int[][] createMatrix(int x, int y) {
 
+        System.out.println("");
+        System.out.println("1st Generation");
+        System.out.println("==============");
+
         int M = 30, N = 30;
 
         Random rnd = new Random();
         int[][] matrix = new int[x][y];
 
-        // Matrix and 1st Gerenation
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = rnd.nextInt(10);
@@ -24,34 +27,35 @@ public class GameOfLive {
                     System.out.print(' ');
                 }
             }
+
             System.out.println("");
-            nextGeneration(matrix, M, N);
+            // nextGeneration(matrix, M, N);
         }
 
         return matrix;
+
     }
 
-    public static void nextGeneration ( int createMatrix[][], int M, int N){
+    /* static void nextGeneration ( int createMatrix[][], int M, int N){
 
         int[][] future = new int[M][N];
 
         for (int l = 1; l < M; l++) {
-            for (int k = 0; k < N; k++) {
+            for (int m = 0; m < N -1; m++) {
 
                 int aliveNeighbours = 0;
 
                 for (int i = -1; i <= 1; i++) {
                     for (int j = -1; j <= 1; j++) {
-                        aliveNeighbours += createMatrix[l + i][k + j];
-                        aliveNeighbours -= createMatrix[l][k];
-
+                        aliveNeighbours += createMatrix[l + i][m + j];
+                        aliveNeighbours -= createMatrix[l][m];
 
                         // Rules of Life
 
-                        if ((createMatrix[l][k] == 1) && (aliveNeighbours < 2)) future[l][k] = 0;
-                        else if ((createMatrix[l][k] == 1) && (aliveNeighbours > 3)) future[l][k] = 0;
-                        else if ((createMatrix[l][k] == 1) && (aliveNeighbours == 3)) future[l][k] = 1;
-                        else future[l][k] = createMatrix[l][k];
+                        if ((createMatrix[l][m] == 1) && (aliveNeighbours < 2)) future[l][m] = 0;
+                        else if ((createMatrix[l][m] == 1) && (aliveNeighbours > 3)) future[l][m] = 0;
+                        else if ((createMatrix[l][m] == 1) && (aliveNeighbours == 3)) future[l][m] = 1;
+                        else future[l][m] = createMatrix[l][m];
                     }
                 }
 
@@ -64,15 +68,14 @@ public class GameOfLive {
                     }
                     System.out.println();
                 }
-
             }
         }
-    }
+    } */
 
     public static void main(String[] args) {
 
         int[][] addMatrix = createMatrix(10, 10);
+        // nextGeneration(addMatrix, 30, 30);
 
     }
-
 }
