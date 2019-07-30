@@ -9,6 +9,7 @@ public class GameOfLive {
         Random rnd = new Random();
         int[][] matrix = new int[x][y];
 
+        // Matrix and 1st Gerenation
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = rnd.nextInt(10);
@@ -19,22 +20,41 @@ public class GameOfLive {
         return matrix;
     }
 
-    public static void theMatrix(int x, int y) {
+    public static void nextGeneration(int createMatrix[][], int m, int n) {
+        int[][] future = new int[m][n];
 
-        if(x%2 == 0 || y%2 == 0) {
-            // Si es par la celula está viva
-        } else {
-            // La celula está muerta
+        for (int l = 1; l < m; l++) {
+            for (int k = 0; k < n; k++) {
+
+                int aliveNeighbours = 0;
+                for (int i = 1; i <= 1; i++) {
+                    for (int j = 1; j <= 1; j++) {
+                        aliveNeighbours += createMatrix[l + i][m + j];
+                        aliveNeighbours -= createMatrix[l + i][m + j];
+
+                        if ((createMatrix[l][m] == 1) && (aliveNeighbours < 2)) future[l][m] = 0;
+                        else if ((createMatrix[l][m] == 1) && (aliveNeighbours > 3)) future[l][m] = 0;
+                        else if ((createMatrix[l][m] == 1) && (aliveNeighbours == 3)) future[l][m] = 1;
+                        else future[l][m] = createMatrix[l][m];
+                    }
+                }
+                for (int i = 0; i < m; i++) {
+                    for (int j = 0; j < k; j++) {
+                        if (future[i][j] == 0) System.out.print('.');
+                        else System.out.print('*');
+                    }
+                    System.out.println();
+                }
+
+            }
+            System.out.println("");
+        }
+
+        public static void main (String[]args){
+
+            int[][] addMatrix = createMatrix(30, 30);
+
         }
     }
-
-    public static void main(String[] args) {
-
-        int[][] addMatrix = createMatrix(30, 30);
-
-        boolean cell;
-        int limitInteractions = 500;
-
-
-    }
 }
+
