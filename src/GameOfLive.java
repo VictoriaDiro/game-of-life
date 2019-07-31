@@ -4,20 +4,22 @@ import static java.lang.reflect.Array.set;
 
 public class GameOfLive {
 
-    int M = 30, N = 30;
+    public static void main(String[] args) {
 
-    public static int[][] createMatrix(int x, int y) {
+        int x = 10;
+        int y = 10;
+        int M = x, N = y;
+
+        Random rnd = new Random();
+
+        int[][] matrix = new int[x][y];
 
         System.out.println("");
         System.out.println("1st Generation");
         System.out.println("==============");
 
-        int M = 30, N = 30;
-
-        Random rnd = new Random();
-        int[][] matrix = new int[x][y];
-
         for (int i = 0; i < matrix.length; i++) {
+
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = rnd.nextInt(10);
 
@@ -27,13 +29,9 @@ public class GameOfLive {
                     System.out.print(' ');
                 }
             }
-
             System.out.println("");
             // nextGeneration(matrix, M, N);
         }
-
-        return matrix;
-
     }
 
     /* static void nextGeneration ( int createMatrix[][], int M, int N){
@@ -69,13 +67,7 @@ public class GameOfLive {
                     System.out.println();
                 }
             }
-        }
-    } */
-
-    public static void main(String[] args) {
-
-        int[][] addMatrix = createMatrix(10, 10);
-        // nextGeneration(addMatrix, 30, 30);
-
+        } */
     }
-}
+// }
+
