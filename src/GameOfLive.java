@@ -30,11 +30,14 @@ public class GameOfLive {
                 }
             }
             System.out.println("");
-            // nextGeneration(matrix, M, N);
+
+            if(x >= 0 && y >= 0) {
+                nextGeneration(matrix, M, N);
+            }
         }
     }
 
-    /* static void nextGeneration ( int createMatrix[][], int M, int N){
+    static void nextGeneration ( int createMatrix[][], int M, int N){
 
         int[][] future = new int[M][N];
 
@@ -67,7 +70,7 @@ public class GameOfLive {
                     System.out.println();
                 }
             }
-        } */
+        }
     }
-// }
+}
 
