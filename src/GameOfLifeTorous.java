@@ -1,17 +1,17 @@
 import java.util.Random;
 
-public class GameOfLive {
+public class GameOfLifeTorous {
 
     public static void main(String[] args) throws InterruptedException {
 
-        int x = 10;
-        int y = 10;
+        int x = 30;
+        int y = 30;
 
         boolean[][] theMatrix = firstGeneration(x, y);
 
-        for (int i = 0; i < 500; i++) {
-           theMatrix = nextGeneration(theMatrix);
-           Thread.sleep(200);
+        for (int i = 0; i < 10; i++) {
+            theMatrix = nextGeneration(theMatrix);
+            Thread.sleep(50);
         }
     }
 
@@ -29,10 +29,30 @@ public class GameOfLive {
                 printMatrix(matrix[i][j]);
             }
             System.out.println("");
-            
+
         }
         return matrix;
     }
+
+    /*
+    getElementAt(double[] arr, int index) {
+
+        index = index % arr.length;
+        index = index + arr.length; // If index is negative, modulus division gives us negative result, so this makes it positive.
+        index = index % arr.length; // In case the previous step made index >= n
+        return arr[index];
+
+    }
+
+    Si n es arr.length entonces
+
+    0 <= index < n Será como lo normal.
+
+    n <= index se ajustará a la lista (p arr[n] == arr[0], arr[n+1] == arr[1], etc.)
+
+    index < 0 se ajustará a la lista en la otra dirección (p arr[-1] == arr[n-1], arr[-2] == arr[n-2], etc.)
+
+     */
 
     static boolean[][] nextGeneration(boolean[][] theMatrix) {
 
@@ -82,9 +102,9 @@ public class GameOfLive {
 
     static void printMatrix(boolean value) {
         if (value) {
-            System.out.print('*');
+            System.out.print("⬛️");
         } else {
-            System.out.print(' ');
+            System.out.print("⬜️");
         }
     }
 }
